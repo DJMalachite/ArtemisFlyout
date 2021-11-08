@@ -81,10 +81,10 @@ namespace ArtemisFlyout.UserControls
             }
         }
 
-        public bool Teams
+        public bool White
         {
-            get => _artemisService.GetJsonDataModelValue(_globalVariablesDatamodelName, "TeamsLight", false);
-            set => _artemisService.SetJsonDataModelValue(_globalVariablesDatamodelName, "TeamsLight", value);
+            get => _artemisService.GetJsonDataModelValue(_globalVariablesDatamodelName, "WhiteLight", false);
+            set => _artemisService.SetJsonDataModelValue(_globalVariablesDatamodelName, "WhiteLight", value);
         }
 
         public bool Ambilight

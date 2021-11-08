@@ -184,22 +184,22 @@
 						Width="110"
 						Height="48"
 						HorizontalAlignment="Center"
-						IsChecked="{Binding ArtemisLightControlViewModel.Teams}">
+						IsChecked="{Binding ArtemisLightControlViewModel.White}">
 						<avalonia:MaterialIcon
-							Kind="MicrosoftTeams"
+							Kind="LightbulbGroup"
 							Width="24"
 							Height="24"/>
-						<ToggleButton.Styles>
+							<ToggleButton.Styles>
 							<Style Selector="ToggleButton:checked /template/ ContentPresenter">
-								<Setter Property="Background" Value="#505AC9"/>
+								<Setter Property="Background" Value="#FFFFFF"/>
 							</Style>
-							<Style Selector="ToggleButton:pressed  /template/ ContentPresenter">
+						<!--	<Style Selector="ToggleButton:pressed  /template/ ContentPresenter">
 								<Setter Property="Background" Value="#505AC9"/>
 							</Style>
 							<Style Selector="ToggleButton:pointerover /template/ ContentPresenter">
 								<Setter Property="Background" Value="#464EB8"/>
-							</Style>
-						</ToggleButton.Styles>
+							</Style> -->
+							</ToggleButton.Styles>
 					</ToggleButton>
 					<TextBlock
 						Grid.Row="3"
@@ -215,7 +215,7 @@
 						HorizontalAlignment="Center"
 						Padding="0 5 0 0"
 						FontSize="12">
-						Teams
+						White Light
 					</TextBlock>
 				</Grid>
 			</StackPanel>
