@@ -11,197 +11,238 @@
                                 mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="500"
                                 x:Class="ArtemisFlyout.UserControls.ArtemisLightControl"
                                 Background="Transparent">
-  <UserControl.Resources>
-    <converters:SubtractionValueConverter x:Key="SubtractionConverter"/>
-  </UserControl.Resources>
+	<UserControl.Resources>
+		<converters:SubtractionValueConverter x:Key="SubtractionConverter"/>
+	</UserControl.Resources>
 
-  <!-- Flyout content start-->
-  <StackPanel>
-    <!-- Global toggle Start -->
+	<!-- Flyout content start-->
+	<StackPanel>
+		<!-- Global toggle Start -->
 
-    <!-- Workaround for toggle switch width -->
-    <DockPanel Margin="0 0 0 15">
-      <controls:HyperlinkButton
-        VerticalAlignment="Center"
-        FontSize="12"
-        Foreground="LightGray"
-        Margin="0 0 0 0"
-        Command="{Binding GoDevices}">
-        Devices settings
-      </controls:HyperlinkButton>
-      <ToggleSwitch
-        IsChecked="{Binding ArtemisLightControlViewModel.AllDevices}"
-        Content=""
-        OffContent=""
-        OnContent=""
-        HorizontalAlignment="Right"
-        MinWidth ="0"
-        MinHeight="0"/>
-    </DockPanel>
-    <!-- Global toggle End -->
-    <StackPanel IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}">
-      <!-- Ambiente profile selector Start -->
-      <StackPanel Margin="10 0 10 40">
-        <TextBlock
-           HorizontalAlignment="Left"
-           Padding=" 0 0 0 5">
-          Ambient profile
-        </TextBlock>
-        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-          <Button
-              VerticalAlignment="Center"
-              HorizontalAlignment="Right"
-              DockPanel.Dock="Right"
-              Height="32"
-              Width="32"
-              Command="{Binding GoCustomProfile}"
-              Content=">"
-              BorderThickness="0 1 1 1"
-              CornerRadius="0 5 5 0">
-              <ToolTip.Tip>
-                  <StackPanel>
-                      <TextBlock Classes="h1">Edit custom profile</TextBlock>
-                      <TextBlock Classes="h2">This option allows you to quickly set custom colors for Custom profile</TextBlock>
-                  </StackPanel>
-              </ToolTip.Tip>
-          </Button>
-          <ComboBox
-              HorizontalAlignment="Stretch"
-              DockPanel.Dock="Left"
-              VerticalAlignment="Center"
-              CornerRadius=" 5 0 0 5"
-              Items="{Binding ArtemisLightControlViewModel.Profiles}"
-              SelectedItem="{Binding ArtemisLightControlViewModel.SelectedProfile}">
-              <ComboBox.ItemTemplate>
-                  <DataTemplate>
-                      <TextBlock Text="{Binding Name}"/>
-                  </DataTemplate>
-              </ComboBox.ItemTemplate>
-          </ComboBox>
-        </DockPanel>
-      </StackPanel>
-      <!-- Ambiente profile selector End -->
+		<!-- Workaround for toggle switch width -->
+		<DockPanel Margin="0 0 0 15">
+			<controls:HyperlinkButton
+			  VerticalAlignment="Center"
+			  FontSize="12"
+			  Foreground="LightGray"
+			  Margin="0 0 0 0"
+			  Command="{Binding GoDevices}">
+				Devices settings
+			</controls:HyperlinkButton>
+			<ToggleSwitch
+			  IsChecked="{Binding ArtemisLightControlViewModel.AllDevices}"
+			  Content=""
+			  OffContent=""
+			  OnContent=""
+			  HorizontalAlignment="Right"
+			  MinWidth ="0"
+			  MinHeight="0"/>
+		</DockPanel>
+		<!-- Global toggle End -->
+		<StackPanel IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}">
+			<!-- Ambiente profile selector Start -->
+			<StackPanel Margin="10 0 10 10">
+				<TextBlock
+				   HorizontalAlignment="Left"
+				   Padding=" 0 0 0 5">
+					Main profiles
+				</TextBlock>
+				<DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+					<Button
+						VerticalAlignment="Center"
+						HorizontalAlignment="Right"
+						DockPanel.Dock="Right"
+						Height="32"
+						Width="32"
+						Command="{Binding GoCustomProfile}"
+						Content=">"
+						BorderThickness="0 1 1 1"
+						CornerRadius="0 5 5 0">
+						<ToolTip.Tip>
+							<StackPanel>
+								<TextBlock Classes="h1">Edit custom profile</TextBlock>
+								<TextBlock Classes="h2">This option allows you to quickly set custom colors for Custom profile</TextBlock>
+							</StackPanel>
+						</ToolTip.Tip>
+					</Button>
+					<ComboBox
+						HorizontalAlignment="Stretch"
+						DockPanel.Dock="Left"
+						VerticalAlignment="Center"
+						CornerRadius=" 5 0 0 5"
+						Items="{Binding ArtemisLightControlViewModel.Profiles}"
+						SelectedItem="{Binding ArtemisLightControlViewModel.SelectedProfile}">
+						<ComboBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Name}"/>
+							</DataTemplate>
+						</ComboBox.ItemTemplate>
+					</ComboBox>
+				</DockPanel>
+			</StackPanel>
+			<!-- Ambiente profile selector End -->
+			<!-- Overlays profile selector Start -->
+			<StackPanel Margin="10 0 10 10">
+				<TextBlock
+				   HorizontalAlignment="Left"
+				   Padding=" 0 0 0 5">
+					Overlays profile
+				</TextBlock>
+				<DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+					<Button
+						VerticalAlignment="Center"
+						HorizontalAlignment="Right"
+						DockPanel.Dock="Right"
+						Height="32"
+						Width="32"
+						Command="{Binding GoCustomProfile}"
+						Content=">"
+						BorderThickness="0 1 1 1"
+						CornerRadius="0 5 5 0">
+						<ToolTip.Tip>
+							<StackPanel>
+								<TextBlock Classes="h1">Edit custom profile</TextBlock>
+								<TextBlock Classes="h2">This option allows you to quickly set custom colors for Custom profile</TextBlock>
+							</StackPanel>
+						</ToolTip.Tip>
+					</Button>
+					<ComboBox
+						HorizontalAlignment="Stretch"
+						DockPanel.Dock="Left"
+						VerticalAlignment="Center"
+						CornerRadius=" 5 0 0 5"
+						Items="{Binding ArtemisLightControlViewModel.Profiles2}"
+						SelectedItem="{Binding ArtemisLightControlViewModel.SelectedProfile2}">
+						<ComboBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Name}"/>
+							</DataTemplate>
+						</ComboBox.ItemTemplate>
+					</ComboBox>
+				</DockPanel>
+			</StackPanel>
+			<!-- Ambiente profile selector End -->
 
-      <!-- Action buttons Start-->
-      <StackPanel Margin="10 10 10 10">
-        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,45,Auto,Auto"  Margin="0">
-          <ToggleButton
-            Grid.Row="0"
-            Grid.Column="0"
-            Width="110"
-            Height="48"
-            HorizontalAlignment="Center"
-            IsChecked="{Binding ArtemisLightControlViewModel.AudioReactive}">
-            <avalonia:MaterialIcon
-              Kind="Equalizer"
-              Width="24"
-              Height="24"/>
-          </ToggleButton>
-          <ToggleButton
-            Grid.Row="0"
-            Grid.Column="1"
-            Width="110"
-            Height="48"
-            HorizontalAlignment="Center"
-            IsChecked="{Binding ArtemisDeviceTogglesViewModel.Ceiling}">
-            <avalonia:MaterialIcon
-              Kind="CeilingLight"
-              Width="24"
-              Height="24"/>
-          </ToggleButton>
-          <TextBlock
-            Grid.Row="1"
-            Grid.Column="0"
-            HorizontalAlignment="Center"
-            Padding="0 5 0 0"
-            FontSize="12">
-            Audio reactive
-          </TextBlock>
-          <TextBlock
-            Grid.Row="1"
-            Grid.Column="1"
-            HorizontalAlignment="Center"
-            Padding="0 5 0 0"
-            FontSize="12">
-            Ceiling Light
-          </TextBlock>
-          <ToggleButton
-              Grid.Row="2"
-              Grid.Column="0"
-              Width="110"
-              Height="48"
-              HorizontalAlignment="Center"
-              IsChecked="{Binding ArtemisLightControlViewModel.Ambilight}">
-            <avalonia:MaterialIcon
-                Kind="MonitorMultiple"
-                Width="24"
-                Height="24"/>
-          </ToggleButton>
-          <ToggleButton
-              Grid.Row="2"
-              Grid.Column="1"
-              Width="110"
-              Height="48"
-              HorizontalAlignment="Center"
-              IsChecked="{Binding ArtemisLightControlViewModel.Teams}">
-            <avalonia:MaterialIcon
-                Kind="MicrosoftTeams"
-                Width="24"
-                Height="24"/>
-            <ToggleButton.Styles>
-              <Style Selector="ToggleButton:checked /template/ ContentPresenter">
-                <Setter Property="Background" Value="#505AC9"/>
-              </Style>
-              <Style Selector="ToggleButton:pressed  /template/ ContentPresenter">
-                <Setter Property="Background" Value="#505AC9"/>
-              </Style>
-              <Style Selector="ToggleButton:pointerover /template/ ContentPresenter">
-                <Setter Property="Background" Value="#464EB8"/>
-              </Style>
-            </ToggleButton.Styles>
-          </ToggleButton>
-          <TextBlock
-              Grid.Row="3"
-              Grid.Column="0"
-              HorizontalAlignment="Center"
-              Padding="0 5 0 0"
-              FontSize="12">
-            Ambilight
-          </TextBlock>
-          <TextBlock
-              Grid.Row="3"
-              Grid.Column="1"
-              HorizontalAlignment="Center"
-              Padding="0 5 0 0"
-              FontSize="12">
-            Teams
-          </TextBlock>
-        </Grid>
-      </StackPanel>
-      <!-- Action buttons End-->
+			<!-- Action buttons Start-->
+			<StackPanel Margin="10 10 10 5">
+				<Grid ColumnDefinitions="*,*" RowDefinitions="Auto,45,Auto,Auto"  Margin="0">
+					<ToggleButton
+					  Grid.Row="0"
+					  Grid.Column="0"
+					  Width="110"
+					  Height="48"
+					  HorizontalAlignment="Center"
+					  IsChecked="{Binding ArtemisLightControlViewModel.AudioReactive}">
+						<avalonia:MaterialIcon
+						  Kind="Equalizer"
+						  Width="24"
+						  Height="24"/>
+					</ToggleButton>
+					<ToggleButton
+					  Grid.Row="0"
+					  Grid.Column="1"
+					  Width="110"
+					  Height="48"
+					  HorizontalAlignment="Center"
+					  IsChecked="{Binding ArtemisLightControlViewModel.Spotify}">
+						<avalonia:MaterialIcon
+						  Kind="Spotify"
+						  Width="24"
+						  Height="24"/>
+					</ToggleButton>
+					<TextBlock
+					  Grid.Row="1"
+					  Grid.Column="0"
+					  HorizontalAlignment="Center"
+					  Padding="0 5 0 0"
+					  FontSize="12">
+						Audio reactive
+					</TextBlock>
+					<TextBlock
+					  Grid.Row="1"
+					  Grid.Column="1"
+					  HorizontalAlignment="Center"
+					  Padding="0 5 0 0"
+					  FontSize="12">
+						Spotify
+					</TextBlock>
+					<ToggleButton
+						Grid.Row="2"
+						Grid.Column="0"
+						Width="110"
+						Height="48"
+						HorizontalAlignment="Center"
+						IsChecked="{Binding ArtemisLightControlViewModel.Ambilight}">
+						<avalonia:MaterialIcon
+							Kind="MonitorMultiple"
+							Width="24"
+							Height="24"/>
+					</ToggleButton>
+					<ToggleButton
+						Grid.Row="2"
+						Grid.Column="1"
+						Width="110"
+						Height="48"
+						HorizontalAlignment="Center"
+						IsChecked="{Binding ArtemisLightControlViewModel.Teams}">
+						<avalonia:MaterialIcon
+							Kind="MicrosoftTeams"
+							Width="24"
+							Height="24"/>
+						<ToggleButton.Styles>
+							<Style Selector="ToggleButton:checked /template/ ContentPresenter">
+								<Setter Property="Background" Value="#505AC9"/>
+							</Style>
+							<Style Selector="ToggleButton:pressed  /template/ ContentPresenter">
+								<Setter Property="Background" Value="#505AC9"/>
+							</Style>
+							<Style Selector="ToggleButton:pointerover /template/ ContentPresenter">
+								<Setter Property="Background" Value="#464EB8"/>
+							</Style>
+						</ToggleButton.Styles>
+					</ToggleButton>
+					<TextBlock
+						Grid.Row="3"
+						Grid.Column="0"
+						HorizontalAlignment="Center"
+						Padding="0 5 0 0"
+						FontSize="12">
+						Ambilight
+					</TextBlock>
+					<TextBlock
+						Grid.Row="3"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						Padding="0 5 0 0"
+						FontSize="12">
+						Teams
+					</TextBlock>
+				</Grid>
+			</StackPanel>
+			<!-- Action buttons End-->
 
-      <!-- Bright Slider Start -->
-      <StackPanel Margin="15 15 15 10">
-        <Grid ColumnDefinitions="20,*,20" RowDefinitions="Auto,Auto"  Margin="0">
-          <avalonia:MaterialIcon Kind="Brightness5" Grid.Row="0" Grid.Column="0"></avalonia:MaterialIcon>
-          <Slider
-              Grid.Row="0"
-              Grid.Column="1"
-              Value="{Binding ArtemisLightControlViewModel.Bright}"
-              IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}"/>
-          <avalonia:MaterialIcon Kind="Brightness7" Grid.Row="0" Grid.Column="2"></avalonia:MaterialIcon>
-          <avalonia:MaterialIcon Kind="SpeedometerSlow" Grid.Row="1" Grid.Column="0"></avalonia:MaterialIcon>
-          <Slider
-              Grid.Row="1"
-              Grid.Column="1"
-              Value="{Binding ArtemisLightControlViewModel.Speed}"
-              IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}"/>
-          <avalonia:MaterialIcon Kind="Speedometer" Grid.Row="1" Grid.Column="2"></avalonia:MaterialIcon>
-        </Grid>
-      </StackPanel>
-      <!-- Bright Slider End -->
-    </StackPanel>
-  </StackPanel>
-  <!-- Flyout content End-->
+			<!-- Bright Slider Start -->
+			<StackPanel Margin="15 15 15 5">
+				<Grid ColumnDefinitions="20,*,20" RowDefinitions="Auto,Auto"  Margin="0">
+					<avalonia:MaterialIcon Kind="Brightness5" Grid.Row="0" Grid.Column="0"></avalonia:MaterialIcon>
+					<Slider
+						Grid.Row="0"
+						Grid.Column="1"
+						Value="{Binding ArtemisLightControlViewModel.Bright}"
+						IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}"/>
+					<avalonia:MaterialIcon Kind="Brightness7" Grid.Row="0" Grid.Column="2"></avalonia:MaterialIcon>
+					<avalonia:MaterialIcon Kind="SpeedometerSlow" Grid.Row="1" Grid.Column="0"></avalonia:MaterialIcon>
+					<Slider
+						Grid.Row="1"
+						Grid.Column="1"
+						Value="{Binding ArtemisLightControlViewModel.Speed}"
+						IsEnabled="{Binding ArtemisLightControlViewModel.AllDevices}"/>
+					<avalonia:MaterialIcon Kind="Speedometer" Grid.Row="1" Grid.Column="2"></avalonia:MaterialIcon>
+				</Grid>
+			</StackPanel>
+			<!-- Bright Slider End -->
+		</StackPanel>
+	</StackPanel>
+	<!-- Flyout content End-->
 
 </reactiveUi:ReactiveUserControl>

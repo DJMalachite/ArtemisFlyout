@@ -38,9 +38,25 @@ namespace ArtemisFlyout.UserControls
             set => _artemisService.SetBright(value);
         }
 
-        public List<Profile> Profiles => _profiles = _artemisService.GetProfiles("Ambient");
+        public List<Profile> Profiles => _profiles = _artemisService.GetProfiles("Main");
 
         public Profile SelectedProfile
+        {
+            get
+            {
+                var currentProfileName = _artemisService.GetJsonDataModelValue(_globalVariablesDatamodelName, "Profile", "");
+                return _selectedProfile = _profiles.FirstOrDefault(p => p.Name == currentProfileName);
+            }
+            set
+            {
+                _artemisService.SetActiveProfile(value.Name);
+                this.RaiseAndSetIfChanged(ref _selectedProfile, value);
+            }
+        }
+
+        public List<Profile> Profiles2 => _profiles = _artemisService.GetProfiles("Overlays");
+
+        public Profile SelectedProfile2
         {
             get
             {
@@ -81,6 +97,12 @@ namespace ArtemisFlyout.UserControls
         {
             get => _artemisService.GetJsonDataModelValue(_globalVariablesDatamodelName, "AudioReactive", false);
             set => _artemisService.SetJsonDataModelValue(_globalVariablesDatamodelName, "AudioReactive", value);
+        }
+
+        public bool Spotify
+        {
+            get => _artemisService.GetJsonDataModelValue(_globalVariablesDatamodelName, "Spotify", false);
+            set => _artemisService.SetJsonDataModelValue(_globalVariablesDatamodelName, "Spotify", value);
         }
 
 

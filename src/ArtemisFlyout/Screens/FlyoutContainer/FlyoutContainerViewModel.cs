@@ -15,7 +15,7 @@ namespace ArtemisFlyout.Screens
         private readonly ArtemisLightControlViewModel _artemisLightControlViewModel;
         private readonly IFlyoutService _flyoutService;
         private int _activePageIndex;
-        private const int MainPageHeight = 510;
+        private const int MainPageHeight = 610;
 
         public FlyoutContainerViewModel(
             IArtemisService artemisService,
